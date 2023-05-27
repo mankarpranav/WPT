@@ -1,0 +1,42 @@
+<!-- Write a program to find sum of digits of given five-digit number. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Assignment-6</title>
+</head>
+
+<script>
+    function calculatesum() {
+        var val = document.getElementById("id1").value;
+        var n = val;
+        var sum = 0, rem = 0;
+        while (n > 0) {
+            rem = n % 10;
+            n = Math.floor(n / 10);
+            sum = sum + rem;
+        }
+        document.getElementById("id3").innerHTML = "Total Sum of Number is : "+ sum;
+    }
+</script>
+
+
+<body>
+
+    Enter Number :
+    <input type="text" id="id1" name="name1">
+    <button id="id2" type="button" onclick="calculatesum()" >Calculate Sum</button>
+    <div id="id3">
+
+    </div>
+
+
+
+
+</body>
+
+</html>

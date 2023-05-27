@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: serif;
+        }
+
+        body {
+            background: black;
+        }
+
+        .first-box fieldset legend {
+            color: #fff;
+        }
+
+        .first-box fieldset legend .box {
+            background-color: blue;
+            width: 150px;
+            border-radius: 6px;
+        }
+
+        .first-box fieldset legend .box p {
+            margin-left: 20px;
+        }
+
+        td {
+            padding: 8px;
+            margin-left: 15px;
+            color: #fff;
+        }
+
+        .second-box fieldset legend .box2 {
+            background-color: blue;
+            width: 200px;
+            border-radius: 6px;
+        }
+
+        .second-box fieldset legend .box2 p {
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .second-box table {
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body style="margin-top: 50px">
+    <div class="container">
+        <div class="first-box">
+            <fieldset style="
+            width: 600px;
+            margin-top: 20px;
+            margin-left: 20px;
+            border: 3px solid blue;
+            border-radius: 25px;
+            height: 220px;
+          ">
+                <legend>
+                    <div class="box">
+                        <p>Name and address</p>
+                    </div>
+                </legend>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>SSN :</td>
+                            <td>
+                                <input type="text" /><span style="margin-left: 10px; background-color: blue">Fill the
+                                    Name And Adress</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Full Name :</td>
+                            <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Street and number :</td>
+                            <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>portal Code :</td>
+                            <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>City :</td>
+                            <td><input type="text" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+
+        <div class="second-box">
+            <fieldset style="
+            width: 600px;
+            margin-top: 30px;
+            margin-left: 20px;
+            border: 3px solid blue;
+            border-radius: 25px;
+            height: 180px;
+          ">
+                <legend>
+                    <div class="box2">
+                        <p>Username and Password</p>
+                    </div>
+                </legend>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>UserName :</td>
+                            <td>
+                                <input type="text" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Password :</td>
+                            <td><input type="text" /></td>
+                        </tr>
+
+                        <div class="pass">
+                            <tr>
+                                <td></td>
+                                <td><input type="checkbox" /> <span>Show Password</span></td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+
+        <div class="btn" style="margin-left: 50px">
+            <button style="
+            width: 100px;
+            color: #ffffff;
+            margin-top: 10px;
+            background-color: blue;
+            height: 25px;
+            border-radius: 10px;
+          ">
+                Register
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

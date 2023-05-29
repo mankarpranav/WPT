@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function f() {
+        console.log("in f");
+      }
+
+      function f2(f) {
+        setTimeout(() => {
+          console.log("In f2");
+          f();
+        }, 2000);
+      }
+
+      console.log("----Before f----");
+      f2(f);
+      console.log("----After f2----");
+    </script>
+  </body>
+</html>

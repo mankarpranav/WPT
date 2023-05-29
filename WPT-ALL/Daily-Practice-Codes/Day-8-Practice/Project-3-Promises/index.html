@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      //NORMAL FUNCTION & CALL ->
+
+      function trial() {
+        console.log("in trial");
+        return "string";
+      }
+
+      let str = trial();
+      console.log(str); //string
+
+      //ASYNC FUNCTION & CALL ->
+
+      async function asfun() {
+        console.log("in async function ");
+        return 12;
+      }
+
+      let num = asfun();
+      console.log(num); //promise
+      num.then((result) => {
+        console.log(result);
+      });
+
+      //-----------------------
+
+      async function asfun2() {
+        console.log("in async function ");
+        return 144;
+      }
+
+      //result is just a variable;
+      //can be renamed as follows as per our understanding.
+      //   can use anything
+
+      let num2 = asfun2();
+      console.log(num2); //promise
+      num2
+        .then((val) => {
+          console.log(val);
+        })
+        .catch((err) => {
+          console.log("Error Occured!!", err);
+        });
+    </script>
+  </body>
+</html>

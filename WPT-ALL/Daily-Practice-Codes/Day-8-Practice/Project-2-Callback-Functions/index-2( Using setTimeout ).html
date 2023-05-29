@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      <p>Understanding Callback Functions using setTimeout()</p>
+      <div id="id1"></div>
+    </div>
+
+    <script>
+      setTimeout(disp, 5000);
+
+      function disp() {
+        document.getElementById("id1").innerHTML =
+          "THIS LINE WILL BE PRINTED AFTER 5 SECONDS";
+      }
+
+      //"DISP IS CALLBACK FUNCTION"
+
+      //HERE, SETTIMEOUT FUNCTION IS CALLED
+      //AFTER 5 SECONDS UNTIL THEN IT IS HOLD
+      //ON EXECUTION
+
+      // In the example above, disp is used as a callback.
+
+      // disp is passed to setTimeout() as an argument.
+
+      // 5000 is the number of milliseconds before time-out, so disp() will be called after 3 seconds.
+
+      // Note:
+      // When you pass a function as an argument, remember not to use parenthesis.
+
+      // Right: setTimeout(disp, 3000);
+
+      // Wrong: setTimeout(disp(), 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      <p>This is Digital Clock set using setInterval --></p>
+      <h2 id="i"></h2>
+    </div>
+
+    <script>
+      setInterval(f, 1000);
+
+      function f() {
+        let d = new Date();
+
+        document.getElementById("i").innerHTML =
+          d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      }
+    </script>
+  </body>
+</html>

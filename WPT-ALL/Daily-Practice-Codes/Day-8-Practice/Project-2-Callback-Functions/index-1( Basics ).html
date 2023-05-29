@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="id1"></p>
+
+    <script>
+      //mydisplayer is callback function --> (this is basic to understand working of callback;
+      //will learn more about it by using typical setTimeout function)
+
+      function mydisplayer() {
+        console.log("reached in mudisplayer!!!");
+      }
+      function calculator(f1) {
+        console.log("reach in calculator!!!");
+        mydisplayer(); //callback fun
+      }
+
+      calculator(mydisplayer);
+    </script>
+  </body>
+</html>

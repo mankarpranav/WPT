@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        ob = {
+            empid: 1,
+            ename: "kishor",
+            dept: { deptno: 101, dname: 'Admin' },
+            hobbies: ["travelling", "reading", "biking", "trekking"],
+            experience: [{ name: 'igate', years: 5 },
+            { name: 'techM', years: 4 },
+            ],
+            desg: "Manager"
+        }
+
+        document.write(ob.empid);
+        document.write(ob.ename);
+        document.write(ob.dept.dname);
+        document.write(ob.dept.deptno);
+        document.write(ob.hobbies[1]);  //reading
+        document.write(ob.hobbies[0]);  //travelling
+        document.write(ob.experience[0].years);
+        document.write(ob.experience[1].name);
+        document.write(ob.experience[1].years);
+        document.write(ob.desg);
+
+    </script>
+</body>
+
+</html>

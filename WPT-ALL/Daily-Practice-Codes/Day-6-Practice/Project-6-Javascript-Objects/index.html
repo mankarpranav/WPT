@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+
+        // OBJECTS IN JAVASCRIPT -->
+
+        // 1.when single var stores multiple properties
+        // called as object in js.
+
+        var obj = {
+            pid: 101,
+            pname: "xyz",
+            psal: 70000,
+            display: function () {
+                return "pid: " + this.pid + "pname: " + this.pname + "psal: " + this.psal;
+            }
+        };
+
+        document.write(typeof (obj));
+        console.log(typeof (obj));
+
+        // to retrive property -->
+        // A. using dot operator 
+
+        var id = obj.pid;
+        var name = obj.pname;
+        var sal = obj.psal;
+        var disp = obj.display();
+        document.write(disp);
+
+        //using [] 
+
+        var id2 = obj["pid"];
+        var name2 = obj["pname"];
+        var sal2 = obj["psal"];
+
+        //to avoid repeatative task of entries -->
+        // use : object constructor function 
+
+        function Person(first, last, age) {
+            this.firstname = first;
+            this.lastname = last;
+            this.age = age;
+        }
+
+        const myFather = new Person("Yashwant", "Mankar", 50);
+        const myMother = new Person("Ujjwala", "Mankar", 40);
+
+        document.write(JSON.stringify(myFather));
+        document.write(JSON.stringify(myMother));
+
+        //Adding Property to an Object 
+        //Adding to particular object
+
+        document.write("After adding property to particular object");
+        myFather.nationality = "Indian";
+
+        document.write(JSON.stringify(myFather));
+        document.write(JSON.stringify(myMother));
+
+        //Adding Method to an Object 
+
+        myFather.name = function () {
+            return this.firstname + " " + this.lastname;
+        }
+
+        document.write("After adding method to particular object");
+        document.write(JSON.stringify(myFather));
+        document.write(JSON.stringify(myMother));
+
+        //Adding a Property to a Constructor
+        // You cannot add a new property to an object constructor the same way you add a new property to an existing object:
+
+        //To add a new property to a constructor, you must add it to the constructor function:
+
+        function Person(first, last, age, eyecolor) {
+            this.firstname = first;
+            this.lastname = last;
+            this.age = age;
+            this.eyeColor = eyecolor;
+            this.nationality = "English";
+        }
+
+        //Property added in object constructro 
+        // will reflect for all objects->
+
+        document.write(JSON.stringify(myFather));
+        document.write(JSON.stringify(myMother));
+
+        // Adding a Method to a Constructor
+        // Your constructor function can also define methods:
+
+        function Person(first, last, age, eyecolor) {
+            this.firstname = first;
+            this.lastname = last;
+            this.age = age;
+            this.eyecolor = eyecolor;
+            this.changeName = function (name) {
+                this.lastname = name;
+            };
+        }
+
+        myMother.changeName("Jire");
+
+        document.write(JSON.stringify(myFather));
+        document.write(JSON.stringify(myMother));
+
+        //As you can see above, JavaScript has object versions of the primitive data types String, Number, and Boolean. But there is no reason to create complex objects. Primitive values are much faster:
+
+        // Use string literals "" instead of new String().
+
+        // Use number literals 50 instead of new Number().
+
+        // Use boolean literals true / false instead of new Boolean().
+
+        // Use object literals {} instead of new Object().
+
+        // Use array literals [] instead of new Array().
+
+        // Use pattern literals /()/ instead of new RegExp().
+
+        // Use function expressions () {} instead of new Function().
+
+
+    </script>
+</body>
+
+</html>

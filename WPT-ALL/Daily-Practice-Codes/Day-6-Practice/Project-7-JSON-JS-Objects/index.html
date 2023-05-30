@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+
+        //javascript object
+        function Person(first, last, age) {
+            this.firstname = first;
+            this.lastname = last;
+            this.age = age;
+        }
+
+        const myFather = new Person("Yashwant", "Mankar", 50);
+        document.write(myFather);
+        document.write("<br>");
+
+        //convert javascript object into json object
+        jsonobj = JSON.stringify(myFather);
+        document.write(jsonobj);
+        document.write("<br>");
+
+        //cant retrive values from JSON cause it is string
+
+        //convert JSON object into Javascript
+        jsobj = JSON.parse(jsonobj);
+        document.write(jsobj);
+
+    </script>
+</body>
+
+</html>

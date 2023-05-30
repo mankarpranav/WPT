@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+
+        function displayTable(data) {
+            var str = "<table border='2'> <th>id</th> <th>userid</th> <th>Address</th> <th>Details</th>";
+
+            for (var ob of data) {
+                str += `<tr> <td>${ob.id}</td> <td>${ob.userId}</td> <td>${ob.title}</td> <td>${ob.body}</td> </tr>`;
+            }
+
+            str += "</table>";
+            document.getElementById('id2').innerHTML = str;
+
+        }
+
+
+        async function submitRequest() {
+            let responce = await fetch("https://jsonplaceholder.typicode.com/posts");
+            if (responce.status == 200 && responce.ok) {
+                data = await responce.json();
+                displayTable(data);
+
+            } else {
+                console.log("Error Occurred..!!");
+            }
+        }
+
+
+    </script>
+
+    <button id="id1" name="name" value="value" onclick="submitRequest()">Send AJAX Request</button>
+    <div id="id2"></div>
+
+</body>
+
+</html>

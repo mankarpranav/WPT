@@ -1,0 +1,1 @@
+// • Triangle.js – isEquilateral(side1, side2, side3), calcPerimeter()

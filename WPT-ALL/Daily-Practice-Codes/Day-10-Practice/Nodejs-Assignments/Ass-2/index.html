@@ -1,0 +1,45 @@
+<!--  Create a module by name mymodule.js to store three functions
+        • factorial – to find factorial of a number.
+        • myprime - Check prime number
+        • printable – to display table of a number
+    display a form to accept a number from user. If number is < 5 then call factorial function
+    if the number is > 5 and < 10 then call printable function
+    otherwise call myprime 
+
+-->
+
+<html>
+
+<head>
+    <script src="./mymodule.js"></script>
+    <script>
+        function task(event) {
+            event.preventDefault();
+            var num = parseInt(document.getElementById("id-1").value);
+
+            if (num < 5) {
+                const result = fact(num);
+                console.log(`Factorial of ${num} is :` + result);
+
+            } else if (num >= 5 && num < 10) {
+                const result = printable(num);
+
+            } else {
+                const result = myprime(num);
+                console.log(`Is ${num} Prime Number? ` + result);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <form action="" onsubmit="task(event)">
+        <p>Enter Number</p>
+        <input type="number" id="id-1" name="name">
+        <Button type="submit">Click To Perform</Button>
+    </form>
+
+</body>
+
+</html>

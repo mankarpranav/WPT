@@ -1,0 +1,1 @@
+// • Circle.js has functions like : calcArea(radius), calcCircumference(radius), calcDiameter(radius)

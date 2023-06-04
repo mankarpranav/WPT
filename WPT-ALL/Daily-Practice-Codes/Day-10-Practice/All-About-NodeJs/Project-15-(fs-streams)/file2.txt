@@ -1,0 +1,1 @@
+this is data from file.txtthis is data from file.txt

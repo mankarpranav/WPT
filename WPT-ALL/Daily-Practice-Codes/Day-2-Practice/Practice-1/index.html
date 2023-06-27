@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction(){
+            var a = parseInt(document.getElementById("fname").value);
+            var b = parseInt(document.getElementById("lname").value);
+            var result = a+b;
+            document.getElementById("disp").innerHTML = "Result : "+result;
+        }
+    </script>
+</head>
+<body>
+    
+    <form >
+        <p>Enter First Number</p>
+        <input type="number"  id="fname">
+        <p>Enter Second Number</p>
+        <input type="number" id="lname"><br>
+        <input type="button" name="btn" id="btn" value="Result" onclick="myFunction()"><br>
+        <div id="disp">
+           
+        </div>
+    </form>
+
+
+
+</body>
+</html>

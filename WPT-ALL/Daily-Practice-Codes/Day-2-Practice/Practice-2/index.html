@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myClickedBtnValue(){
+            var sel = document.getElementById("operations");
+            alert("button value : "+(sel.selectedIndex+1));
+        }
+
+        function myClickedBtnPosition(){
+            var sel = document.getElementById("operations");
+            var pos = sel.selectedIndex;
+            alert(sel.options[pos].value);
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Drop Down -->
+    <form >
+        <p>Select One Choice: </p>
+        <select id="operations">
+            <option name="a" value="function1" id="op1">operation-1</option>
+            <option name="b" value="function2" id="op2">operation-2</option>
+            <option name="c" value="function3" id="op3">operation-3</option>
+            <option name="d" value="function4" id="op4">operation-4</option>
+            <option name="e" value="function5" id="op5">operation-5</option>
+        </select>
+
+        <input type="button" value="click to see value" onclick="myClickedBtnValue()">
+        <input type="button" value="click to see Position" onclick="myClickedBtnPosition()">
+    </form>
+
+</body>
+</html>

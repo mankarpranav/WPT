@@ -1,0 +1,66 @@
+<!-- Validate CheckBoxes -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validate CheckBoxes</title>
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+    <script>
+      function validate() {
+        var arr = document.getElementsByName("skills");
+        var selectedSkills = [];
+
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i].checked) {
+            selectedSkills.push(arr[i].value);
+          }
+        }
+        if (selectedSkills.length >= 3) {
+          var selectedSkillsString = selectedSkills.join(", ");
+
+          document.getElementById("output").innerHTML =
+            "Selected Skills: " + selectedSkillsString;
+
+          document.getElementById("errmsg").innerHTML = "";
+
+          return true;
+        } else {
+          document.getElementById("errmsg").innerHTML =
+            "Please, Check At Least 3 Boxes!!!";
+
+          document.getElementById("output").innerHTML = "";
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Choose Languages Known</p>
+    <input type="checkbox" id="c1" value="C" name="skills" />
+    <label for="c1">C Language</label><br />
+
+    <input type="checkbox" id="c2" value="C++" name="skills" />
+    <label for="c2">C++ Language</label><br />
+
+    <input type="checkbox" id="c3" value="Java" name="skills" />
+    <label for="c3">Java</label><br />
+
+    <input type="checkbox" id="c4" value="Python" name="skills" />
+    <label for="c4">Python</label><br />
+
+    <input type="checkbox" id="c5" value="MySql" name="skills" />
+    <label for="c5">MySql</label>
+    <span id="errmsg"></span> <br />
+
+    <input type="button" value="Validate Skills" onclick="validate()" />
+    <br />
+    <div id="output"></div>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!-- 
+    NOTE: 
+      
+    The issue you're facing is that the output is displaying "degree: on" instead of the actual 
+    selected degree value. This occurs because the degree variable is not being properly assigned 
+    the value of the selected radio button.
+
+    To fix this, you need to set the value attribute for each radio button. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validate Radio Buttons</title>
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+    <script>
+      var val;
+      var degree;
+
+      function validateName() {
+        //validate name
+
+        val = document.getElementById("name").value;
+        if (val === "" || val.trim().length === 0) {
+          document.getElementById("err1").innerHTML = "Enter Valid Data!!!";
+          return false;
+        }
+        document.getElementById("err1").innerHTML = " ";
+        return true;
+      }
+
+      function validateDegree() {
+        //validate radio box here
+        var arr = document.getElementsByName("degree");
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i].checked) {
+            degree = arr[i].value;
+            document.getElementById("err2").innerHTML = "";
+            return true;
+          }
+        }
+        document.getElementById("err2").innerHTML =
+          "Please, Select Atleast One Choice";
+        return false;
+      }
+
+      function validate() {
+        var f1 = validateName();
+        var f2 = validateDegree();
+
+        if (f1 && f2) {
+          document.getElementById("output").innerHTML =
+            "Name of Student: " + val + " <br>Attended Degree: " + degree;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Enter Name :</p>
+    <input type="text" id="name" />
+    <span>*</span>
+    <span id="err1"></span>
+    <br />
+
+    <p>Enter Degree :</p>
+    <input type="radio" name="degree" id="be" value="BE" />
+    <label for="be">BE</label>
+
+    <input type="radio" name="degree" id="btech" value="BTECH" />
+    <label for="btech">BTECH</label>
+
+    <input type="radio" name="degree" id="bcom" value="BCOM" />
+    <label for="bcom">BCOM</label>
+    <span>*</span>
+    <span id="err2"></span>
+    <br />
+
+    <input type="button" value="showData" onclick="validate()" />
+
+    <div id="output"></div>
+  </body>
+</html>

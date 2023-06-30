@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+    <script>
+
+        function validate() {
+
+
+            var amount = document.getElementById("in1").value;
+            if (amount > 1500000) {
+                document.getElementById("errmsg1").innerHTML = "Loan Amount Cannot be Greater than 15 lakhs!";
+            }
+
+            var period = parseInt(document.getElementById("in3").value);
+            if (period > 7 && period < 15) {
+
+            } else {
+                document.getElementById("errmsg3").innerHTML = "Repayment Period Should be Between 7 and 15 years!"
+            }
+        }
+
+
+        function validateField(input) {
+            var a = document.getElementById(input).value;
+            if (a === "" || isNaN(a)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <p>
+    <h3>Enter Loan Information</h3>
+    </p>
+    Amout of the loan(any currency):
+    <input type="text" id="in1" name="amt">
+    <span id="errmsg1"></span>
+    <br>
+
+    Annual Percentage rate of Interest:
+    <input type="text" id="in2" name="per">
+    <span id="errmsg2"></span>
+    <br>
+
+    Repayment Period in Years:
+    <input type="text" id="in3" name="repay">
+    <span id="errmsg3"></span>
+    <br>
+    <input type="button" value="Compute" onclick="validate()"><br>
+    <p>
+
+
+
+
+</body>
+
+</html>

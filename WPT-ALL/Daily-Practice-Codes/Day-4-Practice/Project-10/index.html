@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+    <script>
+        function validate() {
+            var name = document.getElementById("empName").value;
+            var code = document.getElementById("empCode").value;
+            var date = document.getElementById("empDate").value;
+
+            // Validate Employee Name
+            if (name === "" || !/^[A-Za-z]+$/.test(name) || name.length > 10) {
+                document.getElementById("nameErrorMsg").innerHTML = "Invalid Employee Name!";
+                return;
+            }
+
+            // Validate Employee Code
+            if (code === "" || !/^\d{4}$/.test(code)) {
+                document.getElementById("codeErrorMsg").innerHTML = "Invalid Employee Code!";
+                return;
+            }
+
+            // Validate Date
+            if (date === "" || isNaN(Date.parse(date))) {
+                document.getElementById("dateErrorMsg").innerHTML = "Invalid Date!";
+                return;
+            }
+
+            // Create custom object
+            var employeeDetails = {
+                name: name,
+                code: code,
+                date: date
+            };
+
+            // Open new window and display details
+            var detailsWindow = window.open("", "_blank");
+            detailsWindow.document.write("<h3>Employee Details</h3>");
+            detailsWindow.document.write("<p>Name: " + employeeDetails.name + "</p>");
+            detailsWindow.document.write("<p>Code: " + employeeDetails.code + "</p>");
+            detailsWindow.document.write("<p>Date: " + employeeDetails.date + "</p>");
+
+            // Send email
+            var emailSubject = encodeURIComponent("Employee Details for Sanctioning");
+            var emailBody = encodeURIComponent("Name: " + employeeDetails.name + "\nCode: " + employeeDetails.code + "\nDate: " + employeeDetails.date);
+            var emailLink = "mailto:yourmanager@example.com?Subject=" + emailSubject + "&body=" + emailBody;
+            detailsWindow.document.write("<p><a href='" + emailLink + "' target='_top'>Send Email for Sanctioning</a></p>");
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Enter Employee Details</h3>
+    <p>
+        Employee Name (max 10 characters):
+        <input type="text" id="empName" name="empName">
+        <span id="nameErrorMsg"></span>
+    </p>
+
+    <p>
+        Employee Code (4 digits):
+        <input type="text" id="empCode" name="empCode">
+        <span id="codeErrorMsg"></span>
+    </p>
+
+    <p>
+        Date:
+        <input type="text" id="empDate" name="empDate" placeholder="YYYY-MM-DD">
+        <span id="dateErrorMsg"></span>
+    </p>
+
+    <p>
+        <input type="button" value="Show details" onclick="validate()">
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+    <script>
+        function validate() {
+            var name = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+
+            if (name === "" || !/^[A-Za-z]{6,10}$/.test(name)) {
+                document.getElementById("errmsg1").innerHTML = "Enter Valid UserName";
+                return;
+            }
+
+            if (pass === "" || !pass.length < 8 || !/0-9/.test(pass) || !/#/.test(pass)) {
+                document.getElementById("errmsg2").innerHTML = "Enter Valid Password!";
+                return;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <!-- 24. Create a Login.html page that accepts username and password. 
+        Following are the validationsrequired:
+        • Both fields are mandatory
+        • Username must be between 6 to 10 characters, all alphabetic.
+        • Password should be greater than 8 characters, must contain a # and 
+          atleast one digit. -->
+
+
+    <form>
+        Enter Username:
+        <input type="text" id="user"><span>*</span>
+        <span id="errmsg1"></span>
+
+        <br>
+        Enter Password:
+        <input type="text" id="pass"><span>*</span>
+        <span id="errmsg2"></span>
+
+        <br>
+        <input type="button" id="btn" value="validate" onclick="validate()">
+    </form>
+
+</body>
+
+</html>

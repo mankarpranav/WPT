@@ -1,0 +1,91 @@
+<!-- 25. Create a HTML page that accepts order details:
+
+Following are validations required:
+• All fields are mandatory
+• Cust name must be greater than 5 characters.
+• Billing date must be lesser than shipping date
+If all goes well, display as follows; On clicking the display button, all form information must be saved into an
+Order object. The details of this object must be displayed in a new window in a neat tabular fashion(hint : use
+window.open()) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+    <script>
+        function validate() {
+            var name = document.getElementById("id2").value;
+            var bilingDate = document.getElementById("id3").value;
+            var shipDate = document.getElementById("id4").value;
+
+            if (name === "" || !name.length > 5) {
+                document.getElementById("errmsg1").innerHTML = "Name Must Be 5> Characters!";
+            }
+
+            var diff = Date.parse(shipDate) - Date.parse(bilingDate);
+            var daydiff = ((diff) / 1000 / 60 / 60 / 24);
+
+            if (daydiff < 0) {
+                document.getElementById("errmsg2").innerHTML = "Selected Dates Are Invalid!!!";
+            }
+
+        }
+        function show() {
+            var id = document.getElementById("id1").value;
+            var name = document.getElementById("id2").value;
+            var billing = document.getElementById("id3").value;
+            var shipping = document.getElementById("id4").value;
+            var total = document.getElementById("id5").value;
+
+            var obj = {
+                id: id,
+                name: name,
+                billing: billing,
+                shipping: shipping,
+                total: total
+            };
+
+            var detailsWindow = window.open("", "_blank");
+            detailsWindow.document.write("<h1>Entered Details</h1>");
+            detailsWindow.document.write("<h3>ID: " + obj.id + "</h3>");
+            detailsWindow.document.write("<h3>Name: " + obj.name + "</h3>");
+            detailsWindow.document.write("<h3>Billing Date: " + obj.billing + "</h3>");
+            detailsWindow.document.write("<h3>Shipping Date: " + obj.shipping + " </h3>");
+            detailsWindow.document.write("<h3>Total: " + obj.total + "</h3>");
+        }
+    </script>
+</head>
+
+<body>
+
+    OrderID:
+    <input type="text" id="id1" value="order" name="order"><br>
+
+    Custom Name:
+    <input type="text" id="id2">
+    <span>*</span>
+    <span id="errmsg1"></span>
+    <br>
+
+    Enter Billing Date:
+    <input type="date" id="id3"><br>
+
+    Enter Shipping Date:
+    <input type="date" id="id4"><br>
+
+    Order Total:
+    <input type="text" id="id5"><br>
+
+    <input type="button" value="Validate" onclick="validate()">
+    <input type="button" value="Show Details" onclick="show()">
+</body>
+
+</html>

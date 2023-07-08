@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        // Function to get the selected value from the dropdown and display it in an alert
         function myClickedBtnValue(){
             var sel = document.getElementById("operations");
-            alert("button value : "+(sel.selectedIndex+1));
+            alert("button value : " + (sel.selectedIndex+1));
         }
 
+        // Function to get the selected option's value from the dropdown and display it in an alert
         function myClickedBtnPosition(){
             var sel = document.getElementById("operations");
             var pos = sel.selectedIndex;
@@ -19,10 +21,9 @@
     </script>
 </head>
 <body>
-
-    <!-- Drop Down -->
-    <form >
-        <p>Select One Choice: </p>
+    <!-- Dropdown menu -->
+    <form>
+        <p>Select One Choice:</p>
         <select id="operations">
             <option name="a" value="function1" id="op1">operation-1</option>
             <option name="b" value="function2" id="op2">operation-2</option>
@@ -31,9 +32,10 @@
             <option name="e" value="function5" id="op5">operation-5</option>
         </select>
 
+        <!-- Button to display the selected value from the dropdown -->
         <input type="button" value="click to see value" onclick="myClickedBtnValue()">
+        <!-- Button to display the value of the selected option from the dropdown -->
         <input type="button" value="click to see Position" onclick="myClickedBtnPosition()">
     </form>
-
 </body>
 </html>

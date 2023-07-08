@@ -1,48 +1,49 @@
 <html>
     <head>
         <script>
+            // Function to validate data in a textbox
             function validatedata(numid){
-                var a=document.getElementById(numid).value;
-                //alert(a)
-                //to check whether a is blank or a string
-                if(a==="" || isNaN(a)){
-                    
-                    return false
+                var a = document.getElementById(numid).value;
+                // Check if 'a' is blank or not a number
+                if (a === "" || isNaN(a)){
+                    return false;
                 }
                 return true;
-
             }
             
+            // Function to validate numbers and perform addition
             function validatenumbers(){
-                //retrieve data from the textbox
-                var flag=validatedata('n1')
-                var flag1=validatedata('n2')
-                //alert(flag+" "+flag1)
+                // Retrieve data from the textboxes
+                var flag = validatedata('n1');
+                var flag1 = validatedata('n2');
                 if (flag && flag1){
-                    alert("data is valid");
+                    alert("Data is valid");
                     addnumbers();
                 }
                 else{
-                    alert("data is invalid")
+                    alert("Data is invalid");
                 }
             }
+            
+            // Function to perform addition
             function addnumbers(){
-                var a=parseInt(document.getElementById('n1').value);
-                var b=parseInt(document.getElementById('n2').value);
-                var ans=a+b;
-                //document.write("Addition : "+ans);
-                document.getElementById("mydiv").innerHTML="Addition : "+ans;
-                document.getElementById("result").value=ans;
+                var a = parseInt(document.getElementById('n1').value);
+                var b = parseInt(document.getElementById('n2').value);
+                var ans = a + b;
+                // Display the addition result in the 'mydiv' element
+                document.getElementById("mydiv").innerHTML = "Addition : " + ans;
+                // Set the addition result in the 'result' textbox
+                document.getElementById("result").value = ans;
             }
        </script>
 </head>
     <body>
-        
         <form name="frm">
             Number 1: <input type="text" name="num1" id="n1"><br>
             Number 2: <input type="text" name="num2" id="n2"><br>
-            result: <input type="text" name="result" id="result" disabled><br>
-<button type="button" name="add" id="add" value="add" onclick="validatenumbers()">Add numbers</button>
+            Result: <input type="text" name="result" id="result" disabled><br>
+            <!-- Button to validate numbers and trigger addition -->
+            <button type="button" name="add" id="add" value="add" onclick="validatenumbers()">Add numbers</button>
         </form>
         <div id="mydiv">
 

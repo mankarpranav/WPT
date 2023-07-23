@@ -1,69 +1,82 @@
+<!-- The DOCTYPE declaration specifies the document type and version of the HTML file -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      span {
-        color: red;
-      }
-    </style>
-    <script>
-      function add() {
-        var val1 = parseInt(document.getElementById("num1").value);
-        var val2 = parseInt(document.getElementById("num2").value);
-        var result = val1 + val2;
-        document.getElementById("showresult").innerHTML = "Result : " + result;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Addition Calculator</title>
+  <!-- Styling the span elements in the document -->
+  <style>
+    span {
+      color: red;
+    }
+  </style>
+  <!-- JavaScript code section for the logic -->
+  <script>
+    // Function to perform addition and display the result
+    function add() {
+      var val1 = parseInt(document.getElementById("num1").value);
+      var val2 = parseInt(document.getElementById("num2").value);
+      var result = val1 + val2;
+      document.getElementById("showresult").innerHTML = "Result : " + result;
+    }
 
-      function validateData(val, err) {
-        var num = parseInt(document.getElementById(val).value);
+    // Function to validate input data for each field
+    function validateData(val, err) {
+      var num = parseInt(document.getElementById(val).value);
 
-        if (isNaN(num)) {
-          document.getElementById(err).innerHTML = "Enter Numerical Data!!!";
+      if (isNaN(num)) {
+        document.getElementById(err).innerHTML = "Enter Numerical Data!!!";
+        return false;
+      } else {
+        if (num === "") {
+          document.getElementById(err).innerHTML = "Enter Data!!!";
           return false;
         } else {
-          if (num === "") {
-            document.getElementById(err).innerHTML = "Enter Data!!!";
-            return false;
-          } else {
-            document.getElementById(err).innerHTML = " ";
-            return true;
-          }
+          document.getElementById(err).innerHTML = " ";
+          return true;
         }
       }
+    }
 
-      function validateNumbers() {
-        var flag1 = validateData("num1", "errmsg1");
-        var flag2 = validateData("num2", "errmsg2");
-        if (flag1 && flag2) {
-          add();
-        }
+    // Function to validate input numbers before performing addition
+    function validateNumbers() {
+      var flag1 = validateData("num1", "errmsg1");
+      var flag2 = validateData("num2", "errmsg2");
+      if (flag1 && flag2) {
+        add();
       }
-    </script>
-  </head>
-  <body>
-    <form>
-      Enter First Number:
-      <input type="text" id="num1" name="num1" />
-      <span>*</span>
-      <span id="errmsg1"></span><br />
+    }
+  </script>
+</head>
+<body>
+  <!-- HTML form to take input from the user -->
+  <form>
+    Enter First Number:
+    <input type="text" id="num1" name="num1" />
+    <!-- Indicate required field with a red asterisk -->
+    <span>*</span>
+    <!-- Element to display error message for the first number input -->
+    <span id="errmsg1"></span><br />
 
-      Enter Second Number:
-      <input type="text" id="num2" name="num2" />
-      <span>*</span>
-      <span id="errmsg2"></span><br />
+    Enter Second Number:
+    <input type="text" id="num2" name="num2" />
+    <!-- Indicate required field with a red asterisk -->
+    <span>*</span>
+    <!-- Element to display error message for the second number input -->
+    <span id="errmsg2"></span><br />
 
-      <input
-        type="button"
-        id="btn1"
-        name="btn1"
-        value="Add Values"
-        onclick="validateNumbers()"
-      />
-      <div id="showresult"></div>
-    </form>
-  </body>
+    <!-- Button to trigger addition when clicked -->
+    <input
+      type="button"
+      id="btn1"
+      name="btn1"
+      value="Add Values"
+      onclick="validateNumbers()"
+    />
+    <!-- Element to display the result of addition -->
+    <div id="showresult"></div>
+  </form>
+</body>
 </html>
